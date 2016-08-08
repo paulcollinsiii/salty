@@ -1,8 +1,9 @@
-include: packages
+include:
+  - packages
 
 /home/paulcollins/.vimrc:
   file.managed:
-    - source: salt://{{tpldr}}/files/vimrc
+    - source: salt://{{tpldir}}/files/vimrc
     - require:
       - sls: packages
 
@@ -11,7 +12,9 @@ include: packages
     - makedirs: True
 
 vundle:
-  git.present:
-    - name: /home/paulcollins/.vim/bundle/Vundle.vim
+  git.latest:
+    - name: https://github.com/VundleVim/Vundle.vim
+    - target: /home/paulcollins/.vim/bundle/Vundle.vim
     - require:
        - file: /home/paulcollins/.vim/bundle/
+    - user: paulcollins
