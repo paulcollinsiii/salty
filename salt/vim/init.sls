@@ -1,27 +1,30 @@
 include:
   - packages
 
-/home/paulcollins/.vimrc:
+vim:
+  pkg.installed: []
+
+{{ pillar['default_home'] }}/.vimrc:
   file.managed:
     - source: salt://{{tpldir}}/files/vimrc
     - require:
       - sls: packages
 
-/home/paulcollins/.vim/bundle/:
-  file.directory:
-    - makedirs: True
-
 vundle:
+  file.directory:
+    - name: {{ pillar['default_home'] }}/.vim/bundle/
+    - makedirs: True
   git.latest:
     - name: https://github.com/VundleVim/Vundle.vim
-    - target: /home/paulcollins/.vim/bundle/Vundle.vim
+    - target: {{ pillar['default_home'] }}/.vim/bundle/Vundle.vim
     - require:
-       - file: /home/paulcollins/.vim/bundle/
+       - file: vundle
     - user: paulcollins
-
-vundle_install:
   cmd.run:
     # Creates a bunch more, but this is one of the easy ones it does initially
-    - creates: /home/paulcollins/.vim/bundle/nerdtree
+    - creates: {{ pillar['default_home'] }}/.vim/bundle/nerdtree
     - name: vim +PluginInstall +qall
-    - runas: 
+    - runas: {{ pillar['default_user'] }}
+    - require:
+      - git: vundle
+      - pkg: vim
