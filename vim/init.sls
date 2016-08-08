@@ -18,3 +18,10 @@ vundle:
     - require:
        - file: /home/paulcollins/.vim/bundle/
     - user: paulcollins
+
+vundle_install:
+  cmd.run:
+    # Creates a bunch more, but this is one of the easy ones it does initially
+    - creates: /home/paulcollins/.vim/bundle/nerdtree
+    - name: vim +PluginInstall +qall
+    - runas: 
