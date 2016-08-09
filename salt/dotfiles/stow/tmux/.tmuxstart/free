@@ -1,0 +1,33 @@
+setup_window() {
+  tmux send-keys "cd ~/personal" "Enter"
+  tmux send-keys "clear" "Enter"
+}
+
+new_session
+new_window
+new_window
+tmux rename-window -t $session:0 free-1
+tmux rename-window -t $session:1 free-2
+tmux rename-window -t $session:2 Notes
+
+tmux split-window -h -t $session:free-2
+tmux split-window -v -t $session:free-2.1
+
+tmux select-window -t $session:free-1
+setup_window
+tmux send-keys "vim ." "Enter"
+
+tmux select-window -t $session:Notes
+setup_window
+tmux send-keys "cd ~/gdrive_personal/Notes/personal; vim ." "Enter"
+
+tmux select-window -t $session:free-2
+tmux select-pane -t $session:free-2.0
+setup_window
+
+tmux select-pane -t $session:free-2.1
+setup_window
+
+tmux select-pane -t $session:free-2.2
+setup_window
+
