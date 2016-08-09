@@ -19,7 +19,7 @@ vundle:
     - target: {{ pillar['default_home'] }}/.vim/bundle/Vundle.vim
     - require:
        - file: vundle
-    - user: paulcollins
+    - user: {{ pillar['default_user'] }}
   cmd.run:
     # Creates a bunch more, but this is one of the easy ones it does initially
     - creates: {{ pillar['default_home'] }}/.vim/bundle/nerdtree
