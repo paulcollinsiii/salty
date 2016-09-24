@@ -14,6 +14,8 @@ vundle:
   git.latest:
     - name: https://github.com/VundleVim/Vundle.vim
     - target: {{ pillar['default_home'] }}/.vim/bundle/Vundle.vim
+    - branch: master
+    - submodules: True
     - require:
        - file: vundle
     - user: {{ pillar['default_user'] }}
