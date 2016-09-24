@@ -41,3 +41,17 @@ git_push:
     - name: push.default
     - value: simple
     - global: True
+
+git_ignore:
+  git.config_set:
+    - user: paulcollins
+    - name: core.excludesfile
+    - value: "~/.gitignore_global"
+    - global: True
+
+git_pager:
+  git.config_set:
+    - user: paulcollins
+    - name: core.pager
+    - value: "less -F -X"
+    - global: True

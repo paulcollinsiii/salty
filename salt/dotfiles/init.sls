@@ -7,11 +7,19 @@ dotfiles:
     - file_mode: 400
     - template: jinja
 
+{% set modules = [
+  'git',
+  'oh-my-zsh',
+  'tmux',
+  'vim',
+  'zsh',
+] %}
+
 stow:
   pkg.installed:
     - name: stow
   cmd.run:
-    - name: "stow -t {{ pillar['default_home'] }} -S vim -S tmux -S zsh -S oh-my-zsh"
+    - name: "stow -t {{ pillar['default_home'] }} -S {{ modules | join(' -S ') }}"
     - user: {{ pillar['default_user'] }}
     - cwd: {{ pillar['default_home'] }}/stow
     - require:

@@ -1,0 +1,4 @@
+# Some global files that git should ignore outright
+
+# Vim swap files
+*.swp
