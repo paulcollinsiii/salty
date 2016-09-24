@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/paul.collins/.oh-my-zsh
+export ZSH=/home/paulcollins/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -88,7 +88,11 @@ alias git='hub'
 
 
 # Powerline
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+if [ -e /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+  . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+else
+  . ~/.pyenv/versions/2.7.12/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
 # PyENV settings
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
