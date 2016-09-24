@@ -59,52 +59,12 @@ export PGPORT=15432
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias git='hub'
-
-
-
 # Powerline
-if [ -e /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+{%- if grains['os'] == 'Darwin' %}
   . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-else
+{% else %}
   . ~/.pyenv/versions/2.7.12/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-fi
+{% endif -%}
 
-# PyENV settings
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-# VI Mode but I still want my damn ctrl-r
-bindkey '^R' history-incremental-pattern-search-backward
-
-# Because fuckyou Terminal.app
-stty -ixon -ixoff
-
-# Because some modes are still not correct for vi-mode
-export KEYTIMEOUT=1
-bindkey '^w' backward-kill-word
-bindkey '^e' end-of-line
-bindkey '^a' beginning-of-line
+# All other custom config options have been moved into
+# $ZSH_CUSTOM/

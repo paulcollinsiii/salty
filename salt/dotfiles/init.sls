@@ -11,7 +11,8 @@ stow:
   pkg.installed:
     - name: stow
   cmd.run:
-    - name: "stow -t {{ pillar['default_home'] }} -S vim -S tmux -S zsh"
+    - name: "stow -t {{ pillar['default_home'] }} -S vim -S tmux -S zsh -S oh-my-zsh"
     - user: {{ pillar['default_user'] }}
     - cwd: {{ pillar['default_home'] }}/stow
-
+    - require:
+      - file: dotfiles
