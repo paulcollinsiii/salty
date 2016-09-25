@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/paulcollins/.oh-my-zsh
+export ZSH={{ pillar['default_home'] }}/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +53,7 @@ plugins=(git pyenv rbenv vi-mode)
 
 # User configuration
 
-export PATH="/Users/paul.collins/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="{{ pillar['default_home'] }}/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PGPORT=15432
 # export MANPATH="/usr/local/man:$MANPATH"
 
