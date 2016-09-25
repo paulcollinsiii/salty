@@ -1,3 +1,4 @@
+# TODO: This needs to install in python3 instead because ubuntu vim-nox is py3 enabled, not py2
 include:
   - pyenvs
 

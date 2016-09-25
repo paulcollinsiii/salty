@@ -39,35 +39,35 @@ ohmyzsh:
 
 git_username:
   git.config_set:
-    - user: paulcollins
+    - user: {{ pillar['default_user'] }}
     - name: user.name
     - value: Paul Collins
     - global: True
 
 git_useremail:
   git.config_set:
-    - user: paulcollins
+    - user: {{ pillar['default_user'] }}
     - name: user.email
     - value: "paul.collins.iii@gmail.com"
     - global: True
 
 git_push:
   git.config_set:
-    - user: paulcollins
+    - user: {{ pillar['default_user'] }}
     - name: push.default
     - value: simple
     - global: True
 
 git_ignore:
   git.config_set:
-    - user: paulcollins
+    - user: {{ pillar['default_user'] }}
     - name: core.excludesfile
     - value: "~/.gitignore_global"
     - global: True
 
 git_pager:
   git.config_set:
-    - user: paulcollins
+    - user: {{ pillar['default_user'] }}
     - name: core.pager
     - value: "less -F -X"
     - global: True
