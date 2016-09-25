@@ -19,11 +19,11 @@ apt_package_list:
       - htop
       - tmux
       - zsh
-      {%- if grains['virtual'] == 'physical' %}
+      {% if grains['virtual'] == 'physical' %}
       - darktable
       - vagrant
       - virtualbox
-      {% endif -%}
+      {% endif %}
 
 
 ohmyzsh:

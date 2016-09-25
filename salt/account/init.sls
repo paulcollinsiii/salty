@@ -11,7 +11,9 @@
       - adm
       - cdrom
       - sudo
-      - lpadmin
       - plugdev
-      - sambashare
       - users
+      {% if grains['virtual'] == 'physical' %}
+      - lpadmin
+      - sambashare
+      {% endif %}
