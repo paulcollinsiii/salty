@@ -1,3 +1,15 @@
+# Some helpful PPA's
+darktable_ppa:
+  pkgrepo.managed:
+    - ppa: pmjdebruijn/darktable-release
+
+postgres_ppa:
+  pkgrepo.managed:
+    - humanname: Postgres Repo
+    - name: deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+    - gpgcheck: 1
+    - key_url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
 # Default packages I want installed that aren't listed elsewhere
 
 apt_package_list:
@@ -6,9 +18,13 @@ apt_package_list:
       - git
       - htop
       - tmux
+      - zsh
+      {%- if grains['virtual'] == 'physical' %}
+      - darktable
       - vagrant
       - virtualbox
-      - zsh
+      {% endif -%}
+
 
 ohmyzsh:
   git.latest:
