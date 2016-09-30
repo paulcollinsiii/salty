@@ -3,7 +3,11 @@ include:
 
 vim:
   pkg.installed:
+{% if grains['os'] == 'Ubuntu' %}
     - name: vim-nox
+{% elif grains['os'] == 'FreeBSD' %}
+    - name: vim
+{% endif %}
 
 vundle:
   file.directory:

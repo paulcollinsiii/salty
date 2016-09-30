@@ -4,9 +4,10 @@
 {{ pillar['default_user'] }}:
   user.present:
     - fullname: {{ pillar['default_user_fullname'] }}
-    - shell: /bin/zsh
+    - shell: {{ pillar['default_shell'] }}
     - home: {{ pillar['default_home'] }}
     - gid: {{ pillar['default_group'] }}
+{% if grains['os'] == 'Ubuntu' %}
     - groups:
       - adm
       - cdrom
@@ -17,3 +18,4 @@
       - lpadmin
       - sambashare
       {% endif %}
+{% endif %}

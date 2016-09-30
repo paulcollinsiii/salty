@@ -7,3 +7,5 @@ base:
     - pyenvs
     - powerline
     - vim
+  'G@os:FreeBSD':
+    - packages.freebsd

@@ -20,7 +20,8 @@ stow:
     - name: stow
   cmd.run:
     - name: "stow -t {{ pillar['default_home'] }} -S {{ modules | join(' -S ') }}"
-    - user: {{ pillar['default_user'] }}
+    - runas: {{ pillar['default_user'] }}
+    - shell: {{ pillar['default_shell'] }}
     - cwd: {{ pillar['default_home'] }}/stow
     - require:
       - file: dotfiles

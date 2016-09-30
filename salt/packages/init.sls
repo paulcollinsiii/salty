@@ -1,3 +1,4 @@
+{% if grains['os'] == 'Ubuntu' %}
 # Some helpful PPA's
 darktable_ppa:
   pkgrepo.managed:
@@ -9,6 +10,8 @@ postgres_ppa:
     - name: deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
     - gpgcheck: 1
     - key_url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+{% endif %}
 
 # Default packages I want installed that aren't listed elsewhere
 
