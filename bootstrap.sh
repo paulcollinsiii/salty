@@ -7,10 +7,12 @@
 OS_NAME=$(uname -s 2>/dev/null)
 if [ "$OS_NAME" = "FreeBSD" ]; then
   pkg update
-  pkg install py27-salt git
+  pkg install -y py27-salt git
   git clone https://github.com/paulcollinsiii/salty /usr/local/etc/salt/srv
   ln -s /usr/local/etc/salt/srv/salt /usr/local/etc/salt/states
   ln -s /usr/local/etc/salt/srv/pillar /usr/local/etc/salt/pillar
+  mv /usr/local/etc/salt/minion.sample /usr/local/etc/salt/minion
+  mv /usr/local/etc/salt/master.sample /usr/local/etc/salt/master
 else
   sudo apt-get update
   sudo apt-get install -y salt-minion git
