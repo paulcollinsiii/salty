@@ -21,7 +21,11 @@ powerline_fonts:
 
 fonts_install:
   cmd.run:
+{% if grains['os'] == 'FreeBSD' %}
+    - name: /usr/local/bin/zsh ./install.sh
+{% else %}
     - name: ./install.sh
+{% endif %}
     - runas: {{ pillar['default_user'] }}
     - cwd: {{ pillar['default_home'] }}/powerline-fonts
     - shell: {{ pillar['default_shell'] }}
