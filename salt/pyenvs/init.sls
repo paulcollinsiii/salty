@@ -1,3 +1,6 @@
+include:
+  - packages
+
 pyenv-deps:
   pkg.installed:
     - pkgs:
@@ -23,6 +26,7 @@ pyenv-deps:
     - default: true
     - require:
       - pkg: pyenv-deps
+      - sls: packages
 
 pyenv_virtualenv:
   cmd.run:
@@ -33,3 +37,4 @@ pyenv_virtualenv:
     - creates: {{ pillar['pyenvs']['base_path'] }}/plugins/pyenv-virtualenv
     - require:
       - pyenv: {{ pillar['pyenvs']['default_version']['py'] }}
+      - sls: packages

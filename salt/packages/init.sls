@@ -22,7 +22,7 @@ apt_package_list:
       - htop
       - tmux
       - zsh
-      {% if grains['virtual'] == 'physical' %}
+      {% if grains['virtual'] == 'physical' and grains['os'] == 'Ubuntu' %}
       - darktable
       - vagrant
       - virtualbox

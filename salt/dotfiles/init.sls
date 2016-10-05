@@ -1,3 +1,6 @@
+include:
+  - packages
+
 dotfiles:
   file.recurse:
     - name: {{ pillar['default_home'] }}/stow
@@ -27,3 +30,4 @@ stow:
     - cwd: {{ pillar['default_home'] }}/stow
     - require:
       - file: dotfiles
+      - sls: packages
