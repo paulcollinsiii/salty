@@ -9,3 +9,5 @@ base:
     - vim
   'G@os:FreeBSD':
     - packages.freebsd
+  'G@os:Ubuntu':
+    - packages.ubuntu
