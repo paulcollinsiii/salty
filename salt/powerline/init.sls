@@ -11,6 +11,24 @@ powerline:
     - require:
       - sls: pyenvs
 
+{% for version in pillar['pyenvs']['extra_versions'] %}
+powerline-{{ version['py'] }}:
+  cmd.run:
+    - name: {{ version['path'] }}/bin/pip install powerline-status
+    - runas: {{ pillar['default_user'] }}
+    - creates: {{ version['path'] }}/bin/powerline
+    - shell: {{ pillar['default_shell'] }}
+    - require:
+      - sls: pyenvs
+{% endfor %}
+
+{% if grains['os'] == 'Ubuntu' %}
+powerline-system:
+  cmd.run:
+    - name: /usr/bin/pip3 install powerline-status
+    - creates: /usr/local/bin/powerline
+{% endif %}
+
 powerline_fonts:
   cmd.run:
     - name: git clone https://github.com/powerline/fonts powerline-fonts

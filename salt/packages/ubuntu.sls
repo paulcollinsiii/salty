@@ -25,7 +25,10 @@ ubuntu_apt_package_list:
   pkg.latest:
     - pkgs:
       - aptitude
+      - editorconfig
       - neovim
+      - python3-pip
+      - silversearcher-ag
       - xclip
       {% if grains['virtual'] == 'physical' %}
       - nvidia-367

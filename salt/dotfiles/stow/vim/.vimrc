@@ -112,9 +112,15 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 
 " Powerline
+{% if grains['os'] == 'Ubuntu' %}
+py3 from powerline.vim import setup as powerline_setup
+py3 powerline_setup()
+py3 del powerline_setup
+{% else %}
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+{% endif %}
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1

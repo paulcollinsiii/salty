@@ -10,6 +10,9 @@ pyenvs:
   default_version:
     py: python-2.7.12
     path: /home/paulcollins/.pyenv/versions/2.7.12
+  extra_versions:
+    - py: python-3.5.2
+      path: /home/paulcollins/.pyenv/versions/3.5.2
 
 {% elif grains['os'] == 'FreeBSD' %}
 

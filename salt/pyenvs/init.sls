@@ -28,6 +28,15 @@ pyenv-deps:
       - pkg: pyenv-deps
       - sls: packages
 
+{% for version in pillar['pyenvs']['extra_versions'] %}
+{{ version['py'] }}:
+  pyenv.installed:
+    - user: {{ pillar['default_user'] }}
+    - require:
+      - pkg: pyenv-deps
+      - sls: packages
+{% endfor %}
+
 pyenv_virtualenv:
   cmd.run:
     - name: git clone https://github.com/yyuu/pyenv-virtualenv.git
