@@ -9,6 +9,9 @@ vim:
     - name: vim
 {% endif %}
 
+ruby-dev:
+  pkg.installed: []
+
 vundle:
   file.directory:
     - name: {{ pillar['default_home'] }}/.vim/bundle/
