@@ -53,3 +53,13 @@ git_pager:
     - name: core.pager
     - value: "less -F -X"
     - global: True
+
+tmux_start:
+    file.managed:
+      - name: /usr/local/bin/tmuxstart
+      - source: https://github.com/treyhunner/tmuxstart/raw/master/tmuxstart
+      - source_hash: md5=789889cf45f927a730c6a35ddf8b3951
+      - user: root
+      - group: root
+      - mode: 755
+
