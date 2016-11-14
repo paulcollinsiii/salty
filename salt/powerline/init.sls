@@ -2,26 +2,6 @@
 include:
   - pyenvs
 
-powerline:
-  cmd.run:
-    - name: {{ pillar['pyenvs']['default_version']['path'] }}/bin/pip install powerline-status
-    - runas: {{ pillar['default_user'] }}
-    - creates: {{ pillar['pyenvs']['default_version']['path'] }}/bin/powerline
-    - shell: {{ pillar['default_shell'] }}
-    - require:
-      - sls: pyenvs
-
-{% for version in pillar['pyenvs']['extra_versions'] %}
-powerline-{{ version['py'] }}:
-  cmd.run:
-    - name: {{ version['path'] }}/bin/pip install powerline-status
-    - runas: {{ pillar['default_user'] }}
-    - creates: {{ version['path'] }}/bin/powerline
-    - shell: {{ pillar['default_shell'] }}
-    - require:
-      - sls: pyenvs
-{% endfor %}
-
 {% if grains['os'] == 'Ubuntu' %}
 powerline-system:
   cmd.run:

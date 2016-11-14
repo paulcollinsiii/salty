@@ -61,7 +61,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Powerline
 {%- if grains['os'] == 'Darwin' %}
-  . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+  export POWERLINE_CONFIG_COMMAND=/usr/local/bin/powerline-config
+  export POWERLINE_COMMAND=/usr/local/bin/powerline
+  . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 {% else %}
   . ~/.pyenv/versions/2.7.12/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 {% endif -%}
