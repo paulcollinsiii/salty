@@ -65,7 +65,7 @@ source $ZSH/oh-my-zsh.sh
   export POWERLINE_COMMAND=/usr/local/bin/powerline
   . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 {% else %}
-  . ~/.pyenv/versions/2.7.12/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+  . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 {% endif -%}
 
 # All other custom config options have been moved into
