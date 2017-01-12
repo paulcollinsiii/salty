@@ -11,3 +11,4 @@ base:
     - packages.freebsd
   'G@os:Ubuntu':
     - packages.ubuntu
+    - node
