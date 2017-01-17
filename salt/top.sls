@@ -7,6 +7,8 @@ base:
     - pyenvs
     - powerline
     - vim
+  'G@os:Arch':
+    - packages.arch
   'G@os:FreeBSD':
     - packages.freebsd
   'G@os:Ubuntu':

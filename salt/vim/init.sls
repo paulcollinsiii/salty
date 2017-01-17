@@ -3,14 +3,19 @@ include:
 
 vim:
   pkg.installed:
-{% if grains['os'] == 'Ubuntu' %}
-    - name: vim-nox
+{% if grains['os'] == 'Arch' %}
+    - pkgs:
+      - vim
+      - ruby
 {% elif grains['os'] == 'FreeBSD' %}
-    - name: vim
+    - pkgs:
+      - vim
+      - ruby
+{% elif grains['os'] == 'Ubuntu' %}
+    - pkgs:
+      - vim-nox
+      - ruby-dev
 {% endif %}
-
-ruby-dev:
-  pkg.installed: []
 
 vundle:
   file.directory:

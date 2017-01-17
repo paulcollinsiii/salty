@@ -1,4 +1,4 @@
-{% if grains['os'] == 'Ubuntu' %}
+{% if grains['os'] in ['Arch', 'Ubuntu'] %}
 default_user: paulcollins
 default_user_fullname: Paul Collins
 default_group: paulcollins

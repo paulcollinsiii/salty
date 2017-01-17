@@ -2,10 +2,12 @@
 include:
   - pyenvs
 
-{% if grains['os'] == 'Ubuntu' %}
 powerline-system:
   cmd.run:
     - name: /usr/bin/pip3 install powerline-status
+{% if grains['os'] == 'Arch' %}
+    - creates: /usr/bin/powerline
+{% elif grains['os'] == 'Ubuntu' %}
     - creates: /usr/local/bin/powerline
 {% endif %}
 
