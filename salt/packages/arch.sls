@@ -1,8 +1,21 @@
-arch_package_groups:
+base-devel:
   pkg.group_installed:
+    - requires:
+      - pkg: arch_package_list
+xfce4:
+  pkg.group_installed:
+    - requires:
+      - pkg: arch_package_list
+      - pkg: base-devel
+
+
+arch_cycle_fix:
+  pkg.latest:
     - pkgs:
-      - base-devel
-      - xfce4
+      - harfbuzz
+      - noto-fonts
+      - mesa-libgl
+      - libx264
 
 arch_package_list:
   pkg.latest:
@@ -17,6 +30,8 @@ arch_package_list:
       - python-setuptools
       - xf86-video-intel
       - xorg-server
+    - requires:
+      - pkg: arch_cycle_fix
 
 bumblebee:
   pkg.installed: []
