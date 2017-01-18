@@ -1,3 +1,6 @@
+include:
+  - powerline
+
 base-devel:
   pkg.group_installed:
     - requires:
@@ -32,6 +35,8 @@ arch_package_list:
       - xorg-server
     - requires:
       - pkg: arch_cycle_fix
+    - require_in:
+      - cmd: powerline-system
 
 bumblebee:
   pkg.installed: []
