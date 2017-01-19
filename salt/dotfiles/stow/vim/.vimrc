@@ -112,7 +112,7 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 
 " Powerline
-{% if grains['os'] == 'Ubuntu' %}
+{% if grains['os'] in ['Arch', 'Ubuntu'] %}
 py3 from powerline.vim import setup as powerline_setup
 py3 powerline_setup()
 py3 del powerline_setup
