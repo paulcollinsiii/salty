@@ -12,6 +12,7 @@ dotfiles:
 
 {% set modules = [
   'git',
+  'powerline',
   'oh-my-zsh',
   'tmux',
   'vim',
