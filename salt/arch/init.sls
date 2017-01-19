@@ -1,12 +1,27 @@
 # Handle some of the more annoying setup tasks in Arch
 
-# Make the ******* external docking station network dhcp itself
-/etc/systemd/network/wired.network:
+ifplugd:
+  pkg.latest: []
+  service.running:
+    - name: netctl-ifplugd@enp58s0u1u1.service
+    - enable: True
+    - require:
+      - pkg: ifplugd
+
+wpa_actiond:
+  pkg.latest: []
+  service.running:
+    - name: netctl-auto@wlp59s0.service
+    - enable: True
+
+/etc/netctl/ethernet:
   file.managed:
-    - source: salt://{{ tpldir }}/arch/files/wired.network
-    - user: root
+    - source: salt://{{ tpldir }}/arch/files/ethernet
     - group: root
-    - mode: 644
+    - owner: root
+    - mode: 0640
+    - require_in:
+      - pkg: ifplugd
 
 /etc/sudoers:
   file.managed:
