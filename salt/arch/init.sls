@@ -8,3 +8,10 @@
     - group: root
     - mode: 644
 
+/etc/sudoers:
+  file.managed:
+    - source: salt://{{ tpldir }}/arch/files/sudoers
+    - group: root
+    - owner: root
+    - mode: 0440
+    - check_cmd: /usr/bin/visudo -c -f
