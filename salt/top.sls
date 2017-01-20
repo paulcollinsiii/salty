@@ -6,6 +6,7 @@ base:
     - hub
     - pyenvs
     - powerline
+    - terraform
     - vim
   'G@os:Arch':
     - packages.arch

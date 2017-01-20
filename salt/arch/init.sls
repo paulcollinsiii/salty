@@ -8,6 +8,13 @@ ifplugd:
     - require:
       - pkg: ifplugd
 
+ufw:
+  pkg.latest: []
+  service.running:
+    - enable: True
+    - require:
+      - pkg: ufw
+
 wpa_actiond:
   pkg.latest: []
   service.running:

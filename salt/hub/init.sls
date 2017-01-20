@@ -6,7 +6,7 @@ hub_binary:
     - name: /opt/hub
     - source: https://github.com/github/hub/releases/download/v2.2.8/hub-linux-amd64-2.2.8.tgz
     - source_hash: md5=a62fa633d6777e44029ab387e4ad25f6
-    - tar_options: z
+    - options: z
     - archive_format: tar
 
 hub_stow:

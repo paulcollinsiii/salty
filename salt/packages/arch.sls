@@ -1,5 +1,6 @@
 include:
   - powerline
+  - arch.aur
 
 base-devel:
   pkg.group_installed:
@@ -29,17 +30,21 @@ arch_package_list:
       - intel-ucode
       - mesa
       - mlocate
+      - net-tools
       - nvidia
       - openssh
+      - pamixer
+      - pavucontrol
       - pulseaudio
       - python
       - python-pip
       - python-setuptools
+      - unzip
       - wpa_actiond
       - wpa_supplicant
       - xf86-video-intel
       - xorg-server
-    - requires:
+    - require:
       - pkg: arch_cycle_fix
     - require_in:
       - cmd: powerline-system

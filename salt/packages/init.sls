@@ -54,6 +54,13 @@ git_pager:
     - value: "less -F -X"
     - global: True
 
+git_editor:
+  git.config_set:
+    - user: {{ pillar['default_user'] }}
+    - name: core.editor
+    - value: "vim"
+    - global: True
+
 tmux_start:
     file.managed:
       - name: /usr/local/bin/tmuxstart
