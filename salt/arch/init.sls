@@ -1,5 +1,12 @@
 # Handle some of the more annoying setup tasks in Arch
 
+bluez:
+  pkg.latest: []
+  service.running:
+    - enable: True
+    - require:
+      - pkg: bluez
+
 ifplugd:
   pkg.latest: []
   service.running:

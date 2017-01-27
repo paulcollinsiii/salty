@@ -14,7 +14,7 @@ xfce4:
       - pkg: base-devel
 
 arch_cycle_fix:
-  pkg.latest:
+  pkg.installed:
     - pkgs:
       - harfbuzz
       - noto-fonts
@@ -22,15 +22,17 @@ arch_cycle_fix:
       - libx264
 
 arch_package_list:
-  pkg.latest:
+  pkg.installed:
     - pkgs:
       - alsa-utils
+      - bluez-utils
       - dialog
       - firefox
       - intel-ucode
       - mesa
       - mlocate
       - net-tools
+      - npm
       - nvidia
       - openssh
       - pamixer
@@ -42,6 +44,7 @@ arch_package_list:
       - unzip
       - wpa_actiond
       - wpa_supplicant
+      - xf86-input-synaptics
       - xf86-video-intel
       - xorg-server
     - require:
