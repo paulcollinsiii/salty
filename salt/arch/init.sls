@@ -37,6 +37,13 @@ wpa_actiond:
     - require_in:
       - pkg: ifplugd
 
+/etc/vconsole.conf:
+  file.managed:
+    - source: salt://{{ tpldir }}/arch/files/vconsole.conf
+    - group: root
+    - owner: root
+    - mode: 0640
+
 /etc/sudoers:
   file.managed:
     - source: salt://{{ tpldir }}/arch/files/sudoers

@@ -41,6 +41,7 @@ arch_package_list:
       - python
       - python-pip
       - python-setuptools
+      - terminus-font
       - unzip
       - wpa_actiond
       - wpa_supplicant
