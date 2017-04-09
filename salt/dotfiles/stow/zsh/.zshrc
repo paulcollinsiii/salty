@@ -53,7 +53,7 @@ plugins=(git pyenv rbenv vi-mode)
 
 # User configuration
 
-export PATH="{{ pillar['default_home'] }}/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="{{ pillar['default_home'] }}/bin:{{ pillar['default_home'] }}/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PGPORT=15432
 # export MANPATH="/usr/local/man:$MANPATH"
 

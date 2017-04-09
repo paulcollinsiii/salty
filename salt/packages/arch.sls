@@ -18,7 +18,6 @@ arch_cycle_fix:
     - pkgs:
       - harfbuzz
       - noto-fonts
-      - mesa-libgl
       - libx264
 
 arch_package_list:
@@ -28,6 +27,7 @@ arch_package_list:
       - bluez-utils
       - dialog
       - firefox
+      - go-tools
       - intel-ucode
       - mesa
       - mlocate
@@ -52,11 +52,3 @@ arch_package_list:
       - pkg: arch_cycle_fix
     - require_in:
       - cmd: powerline-system
-
-bumblebee:
-  pkg.installed: []
-  service.enabled:
-    - name: bumblebeed
-    - requires:
-      - pkg: bumblebee
-

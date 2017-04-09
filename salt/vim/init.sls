@@ -3,11 +3,7 @@ include:
 
 vim:
   pkg.installed:
-{% if grains['os'] == 'Arch' %}
-    - pkgs:
-      - vim
-      - ruby
-{% elif grains['os'] == 'FreeBSD' %}
+{% if grains['os'] == 'FreeBSD' %}
     - pkgs:
       - vim
       - ruby
@@ -32,4 +28,3 @@ vundle:
        - file: vundle
     - user: {{ pillar['default_user'] }}
     - unless: test -d {{ pillar['default_home'] }}/.vim/bundle/Vundle.vim
-
