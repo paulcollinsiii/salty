@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins! So many plugins
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'rking/ag.vim'
 Plug 'tweekmonster/braceless.vim'
 Plug 'flazz/vim-colorschemes'
