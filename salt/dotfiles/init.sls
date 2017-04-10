@@ -25,7 +25,7 @@ stow:
     - name: stow
   cmd.run:
     - name: "stow -t {{ pillar['default_home'] }} -S {{ modules | join(' -S ') }}"
-{% if grains['os'] != 'FreeBSD' %}
+{% if grains['os'] not in ('MacOS', 'FreeBSD') %}
     - runas: {{ pillar['default_user'] }}
 {% endif %}
     - shell: {{ pillar['default_shell'] }}

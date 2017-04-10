@@ -1,7 +1,7 @@
 # Default packages I want installed that aren't listed elsewhere
 
 apt_package_list:
-  pkg.latest:
+  pkg.installed:
     - pkgs:
       - git
       - htop
@@ -67,6 +67,6 @@ tmux_start:
       - source: https://github.com/treyhunner/tmuxstart/raw/master/tmuxstart
       - source_hash: md5=789889cf45f927a730c6a35ddf8b3951
       - user: root
-      - group: root
+      - group: {{ pillar['default_root_group'] }}
       - mode: 755
 

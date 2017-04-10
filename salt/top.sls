@@ -13,6 +13,8 @@ base:
   'G@os:FreeBSD':
     - packages.freebsd
     - vim
+  'G@os:MacOS':
+    - neovim
   'G@os:Ubuntu':
     - packages.ubuntu
     - node

@@ -4,10 +4,14 @@ include:
 
 powerline-system:
   cmd.run:
+    {% if grains['os'] == 'MacOS' %}
+    - name: /usr/bin/pip install powerline-status
+    {% else %}
     - name: /usr/bin/pip3 install powerline-status
+    {% endif %}
 {% if grains['os'] == 'Arch' %}
     - creates: /usr/bin/powerline
-{% elif grains['os'] == 'Ubuntu' %}
+{% elif grains['os'] in ('MacOS', 'Ubuntu') %}
     - creates: /usr/local/bin/powerline
 {% endif %}
 

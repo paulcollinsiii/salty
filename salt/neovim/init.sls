@@ -1,9 +1,11 @@
 neovim:
-  pkg.latest:
+  pkg.installed:
     - pkgs:
       - neovim
+      {% if grains['os'] == 'Arch' %}
       - python-neovim
       - python2-neovim
+      {% endif %}
 
 {{ pillar['default_home']}}/.config/nvim/autoload:
   file.directory:

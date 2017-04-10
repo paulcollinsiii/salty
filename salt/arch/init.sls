@@ -31,7 +31,7 @@ wpa_actiond:
 /etc/netctl/ethernet:
   file.managed:
     - source: salt://{{ tpldir }}/arch/files/ethernet
-    - group: root
+    - group: {{ pillar['default_root_group'] }}
     - owner: root
     - mode: 0640
     - require_in:
@@ -40,14 +40,14 @@ wpa_actiond:
 /etc/vconsole.conf:
   file.managed:
     - source: salt://{{ tpldir }}/arch/files/vconsole.conf
-    - group: root
+    - group: {{ pillar['default_root_group'] }}
     - owner: root
     - mode: 0640
 
 /etc/sudoers:
   file.managed:
     - source: salt://{{ tpldir }}/arch/files/sudoers
-    - group: root
+    - group: {{ pillar['default_root_group'] }}
     - owner: root
     - mode: 0440
     - check_cmd: /usr/bin/visudo -c -f

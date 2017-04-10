@@ -5,7 +5,7 @@ let g:python_host_prog = '{{ pillar['pyenvs']['default_version']['path'] }}/bin/
 let g:python3_host_prog = '{{ version['path'] }}/bin/python'
 {% endfor %}
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Plugins! So many plugins
 Plug 'vim-airline/vim-airline'
@@ -13,7 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rking/ag.vim'
 Plug 'tweekmonster/braceless.vim'
 Plug 'flazz/vim-colorschemes'
-Plug 'wincent/command-t'
+Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
@@ -51,8 +51,17 @@ nmap <silent> <leader>h :nohls<CR>
 " Braceless
 autocmd FileType python,yaml BracelessEnable +indent
 
-" Command-T
-nmap <silent> <C-P> :CommandT<CR>
+" CtrlP
+if executable('ag')
+  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+  " and .agignore. Ignores hidden files by default.
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
+else
+  "ctrl+p ignore files in .gitignore
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+endif
 
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
