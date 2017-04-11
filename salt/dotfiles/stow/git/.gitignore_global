@@ -1,4 +1,19 @@
 # Some global files that git should ignore outright
 
+# OSX stupidity
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+Icon
+Thumbs.db
+ehthumbs.db
+
 # Vim swap files
 *.swp
+
+# Python projects
+.python-version
+.tox
+__pycache__
+*.pyc
