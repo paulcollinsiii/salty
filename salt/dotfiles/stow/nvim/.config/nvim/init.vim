@@ -67,7 +67,7 @@ endif
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#show_docstring = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 augroup omnifuncs
