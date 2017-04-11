@@ -1,53 +1,55 @@
 # Handle some of the more annoying setup tasks in Arch
-
-bluez:
-  pkg.latest: []
-  service.running:
-    - enable: True
-    - require:
-      - pkg: bluez
-
-ifplugd:
-  pkg.latest: []
-  service.running:
-    - name: netctl-ifplugd@enp58s0u1u1.service
-    - enable: True
-    - require:
-      - pkg: ifplugd
+include:
+  - packages.arch
 
 ufw:
-  pkg.latest: []
+  pkg.installed: []
   service.running:
     - enable: True
     - require:
       - pkg: ufw
 
 wpa_actiond:
-  pkg.latest: []
+  pkg.installed: []
   service.running:
     - name: netctl-auto@wlp59s0.service
     - enable: True
 
+/etc/netctl/interfaces/en-any:
+  file.managed:
+    - source: salt://{{ tpldir }}/files/en-any
+    - group: {{ pillar['default_root_group'] }}
+    - user: root
+    - mode: 0750
+    - require:
+      - sls: packages.arch
+
 /etc/netctl/ethernet:
   file.managed:
-    - source: salt://{{ tpldir }}/arch/files/ethernet
+    - source: salt://{{ tpldir }}/files/ethernet
     - group: {{ pillar['default_root_group'] }}
-    - owner: root
+    - user: root
     - mode: 0640
-    - require_in:
-      - pkg: ifplugd
+    - require:
+      - file: /etc/netctl/interfaces/en-any
+      - sls: packages.arch
+
+netctl-ifplugd@ethernet:
+  service.enabled:
+    - require:
+      - sls: packages.arch
 
 /etc/vconsole.conf:
   file.managed:
-    - source: salt://{{ tpldir }}/arch/files/vconsole.conf
+    - source: salt://{{ tpldir }}/files/vconsole.conf
     - group: {{ pillar['default_root_group'] }}
-    - owner: root
+    - user: root
     - mode: 0640
 
 /etc/sudoers:
   file.managed:
-    - source: salt://{{ tpldir }}/arch/files/sudoers
+    - source: salt://{{ tpldir }}/files/sudoers
     - group: {{ pillar['default_root_group'] }}
-    - owner: root
+    - user: root
     - mode: 0440
     - check_cmd: /usr/bin/visudo -c -f

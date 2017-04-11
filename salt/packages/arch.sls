@@ -13,6 +13,9 @@ xfce4:
       - pkg: arch_package_list
       - pkg: base-devel
 
+i3:
+  pkg.group_installed: []
+
 arch_cycle_fix:
   pkg.installed:
     - pkgs:
@@ -24,14 +27,17 @@ arch_package_list:
   pkg.installed:
     - pkgs:
       - alsa-utils
+      - bluez
       - bluez-utils
       - dialog
       - firefox
       - go-tools
+      - ifplugd
       - intel-ucode
       - mesa
       - mlocate
       - net-tools
+      - netctl
       - npm
       - nvidia
       - openssh
@@ -42,10 +48,10 @@ arch_package_list:
       - python-pip
       - python-setuptools
       - terminus-font
+      - the_silver_searcher
       - unzip
       - wpa_actiond
       - wpa_supplicant
-      - xf86-input-synaptics
       - xf86-video-intel
       - xorg-server
     - require:

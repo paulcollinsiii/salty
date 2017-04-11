@@ -1,4 +1,4 @@
 Description='A basic dhcp ethernet connection'
-Interface=enp58s0u1u1
+Interface=en-any
 Connection=ethernet
 IP=dhcp

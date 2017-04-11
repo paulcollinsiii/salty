@@ -8,6 +8,7 @@ base:
     - powerline
     - terraform
   'G@os:Arch':
+    - arch
     - packages.arch
     - neovim
   'G@os:FreeBSD':
