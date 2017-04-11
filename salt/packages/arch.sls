@@ -30,6 +30,7 @@ arch_package_list:
       - bluez
       - bluez-utils
       - dialog
+      - dmenu
       - firefox
       - go-tools
       - ifplugd
