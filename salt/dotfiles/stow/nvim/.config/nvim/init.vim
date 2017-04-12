@@ -68,8 +68,8 @@ endif
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
-call deoplete#custom#set('jedi', 'rank', 600)  " Sort Jedi suggestions higher
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+call deoplete#custom#set('jedi', 'rank', 900)  " Sort Jedi suggestions higher
+autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
 
 augroup omnifuncs
   autocmd!
