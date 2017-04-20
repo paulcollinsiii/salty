@@ -9,6 +9,31 @@
   })
 %}
 
+{% if grains['os'] == 'MacOS' %}
+/opt/terraform:
+  file.directory: []
+/opt/terraform/{{ tf.version }}:
+  file.directory: []
+
+terraform_osx:
+  file.directory:
+    - name: "/opt/terraform/{{ tf.version }}/bin"
+  cmd.run:
+    - name: "curl -Lo terraform_download.zip {{ tf.source }} && unzip terraform_download.zip && rm terraform_download.zip"
+    - cwd: "/opt/terraform/{{ tf.version }}/bin"
+    - creates: "/opt/terraform/{{ tf.version }}/bin/terraform"
+    - require:
+      - file: terraform_osx
+
+terraform:
+  cmd.run:
+    - name: "stow -t /usr/local -S {{ tf.version }}"
+    - cwd: /opt/terraform
+    - require:
+      - cmd: terraform_osx
+
+{% else %}
+
 terraform:
   archive.extracted:
     - name: "/opt/terraform/{{ tf.version }}/bin"
@@ -20,4 +45,4 @@ terraform:
     - cwd: /opt/terraform
     - require:
       - archive: terraform
-
+{% endif %}

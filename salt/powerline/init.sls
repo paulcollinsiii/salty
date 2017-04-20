@@ -5,7 +5,8 @@ include:
 powerline-system:
   cmd.run:
     {% if grains['os'] == 'MacOS' %}
-    - name: /usr/bin/pip install powerline-status
+    - name: /usr/local/bin/pip install powerline-status psutil
+    - runas: root
     {% else %}
     - name: /usr/bin/pip3 install powerline-status
     {% endif %}

@@ -1,7 +1,11 @@
 neovim:
   pkg.installed:
     - pkgs:
+      {% if grains['os'] == 'MacOS' %}
+      # Brew doesn't seem to want to install neovim cleanly via salt. Meh
+      {% else %}
       - neovim
+      {% endif %}
       {% if grains['os'] == 'Arch' %}
       - python-neovim
       - python2-neovim

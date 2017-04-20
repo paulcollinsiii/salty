@@ -16,6 +16,7 @@ base:
     - vim
   'G@os:MacOS':
     - neovim
+    - packages.macos
   'G@os:Ubuntu':
     - packages.ubuntu
     - node

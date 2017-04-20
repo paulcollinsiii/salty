@@ -34,21 +34,21 @@ pyenvs:
     path: /usr/home/paulcollins/.pyenv/versions/2.7.12
 
 {% elif grains['os'] == 'MacOS' %}
-default_user: paul.collins
+default_user: paulcollins
 default_user_fullname: Paul Collins
 default_group: staff
-default_home: /Users/paul.collins
+default_home: /Users/paulcollins
 default_shell: /bin/zsh
 default_root_group: wheel
 
 pyenvs:
-  base_path: /Users/paul.collins/.pyenv
+  base_path: /Users/paulcollins/.pyenv
   default_version:
     base_ver: 2.7
     py: python-2.7.12
-    path: /Users/paul.collins/.pyenv/versions/2.7.12
+    path: /Users/paulcollins/.pyenv/versions/2.7.12
   extra_versions:
     - py: python-3.5.2
       base_ver: 3.5
-      path: /Users/paul.collins/.pyenv/versions/3.5.2
+      path: /Users/paulcollins/.pyenv/versions/3.5.2
 {% endif %}
