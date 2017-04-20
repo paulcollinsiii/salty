@@ -58,7 +58,7 @@ git_editor:
   git.config_set:
     - user: {{ pillar['default_user'] }}
     - name: core.editor
-    - value: "vim"
+    - value: "nvim"
     - global: True
 
 tmux_start:

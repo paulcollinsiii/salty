@@ -6,4 +6,5 @@ mac_package_list:
       - psutils
       - python  # We want the brew version of python
       - reattach-to-user-namespace
+      - the_silver_searcher
 
