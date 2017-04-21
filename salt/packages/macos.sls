@@ -3,6 +3,7 @@
 mac_package_list:
   pkg.installed:
     - pkgs:
+      - postgresql@9.5
       - psutils
       - python  # We want the brew version of python
       - reattach-to-user-namespace
