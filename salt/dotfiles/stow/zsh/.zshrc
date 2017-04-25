@@ -66,7 +66,7 @@ source $ZSH/oh-my-zsh.sh
   . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 {% elif grains['os'] == 'Arch' %}
   export POWERLINE_CONFIG_COMMAND=/usr/bin/powerline-config
-  export POWERLINE_COMMAND=/usr/bin/
+  export POWERLINE_COMMAND=/usr/bin/powerline
   . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 {% elif grains['os'] == 'Ubuntu' %}
   . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh

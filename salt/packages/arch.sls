@@ -7,12 +7,6 @@ base-devel:
     - requires:
       - pkg: arch_package_list
 
-xfce4:
-  pkg.group_installed:
-    - requires:
-      - pkg: arch_package_list
-      - pkg: base-devel
-
 i3:
   pkg.group_installed: []
 
@@ -29,6 +23,7 @@ arch_package_list:
       - alsa-utils
       - bluez
       - bluez-utils
+      - compton
       - dialog
       - dmenu
       - firefox
