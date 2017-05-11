@@ -27,8 +27,10 @@ arch_package_list:
       - dialog
       - dmenu
       - firefox
+      - gimp
       - go-tools
       - ifplugd
+      - inkscape
       - intel-ucode
       - mesa
       - mlocate
@@ -38,6 +40,7 @@ arch_package_list:
       - nvidia
       - openssh
       - pamixer
+      - pandoc
       - pavucontrol
       - pulseaudio
       - python
