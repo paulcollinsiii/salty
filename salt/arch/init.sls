@@ -15,6 +15,15 @@ wpa_actiond:
     - name: netctl-auto@wlp59s0.service
     - enable: True
 
+/etc/modprobe.d/bbswitch.conf:
+  file.managed:
+    - source: salt://{{ tpldir }}/files/bbswitch.conf
+    - group: {{ pillar['default_root_group'] }}
+    - user: root
+    - mode: 0644
+    - require:
+      - sls: packages.arch
+
 /etc/netctl/interfaces/en-any:
   file.managed:
     - source: salt://{{ tpldir }}/files/en-any

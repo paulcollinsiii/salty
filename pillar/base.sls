@@ -2,9 +2,13 @@
 default_user: paulcollins
 default_user_fullname: Paul Collins
 default_group: paulcollins
+default_extragroup:
+  - docker
+  - bumblebee
 default_home: /home/paulcollins
 default_shell: /bin/zsh
 default_root_group: root
+
 
 pyenvs:
   base_path: /home/paulcollins/.pyenv
@@ -22,6 +26,8 @@ pyenvs:
 default_user: paulcollins
 default_user_fullname: paulcollins
 default_group: paulcollins
+default_extragroup:
+  - wheel
 default_home: /usr/home/paulcollins
 default_shell: /usr/local/bin/zsh
 default_root_group: root
@@ -37,6 +43,8 @@ pyenvs:
 default_user: paulcollins
 default_user_fullname: Paul Collins
 default_group: staff
+default_extragroup:
+  - wheel
 default_home: /Users/paulcollins
 default_shell: /bin/zsh
 default_root_group: wheel

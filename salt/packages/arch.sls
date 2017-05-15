@@ -21,6 +21,7 @@ arch_package_list:
   pkg.installed:
     - pkgs:
       - alsa-utils
+      - bumblebee
       - bluez
       - bluez-utils
       - compton

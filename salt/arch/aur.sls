@@ -37,3 +37,15 @@ touchegg:
     - user: {{ pillar['default_user'] }}
     - unless:
       - ls /opt/AUR/touchegg
+
+acpi:
+  git.latest:
+    - name: https://github.com/m4ng0squ4sh/razer_blade_14_2016_acpi_fix
+    - target: /opt/AUR/razer_blade_14_2016_acpi_fix
+    - user: {{ pillar['default_user'] }}
+    - unless:
+      - ls /opt/AUR/razer_blade_14_2016_acpi_fix
+  pkg.installed:
+    - pkgs:
+      - cpio
+      - iasl

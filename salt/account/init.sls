@@ -7,15 +7,5 @@
     - shell: {{ pillar['default_shell'] }}
     - home: {{ pillar['default_home'] }}
     - gid: {{ pillar['default_group'] }}
-{% if grains['os'] == 'Ubuntu' %}
-    - groups:
-      - adm
-      - cdrom
-      - sudo
-      - plugdev
-      - users
-      {% if grains['virtual'] == 'physical' %}
-      - lpadmin
-      - sambashare
-      {% endif %}
-{% endif %}
+    - optional_groups: {{ pillar['default_extragroup'] }}
+    - remove_groups: False
