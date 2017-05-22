@@ -50,6 +50,7 @@ arch_package_list:
       - terminus-font
       - the_silver_searcher
       - unzip
+      - vagrant
       - wpa_actiond
       - wpa_supplicant
       - xf86-video-intel

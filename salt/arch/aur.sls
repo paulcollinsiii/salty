@@ -41,7 +41,7 @@ touchegg:
 illum:
   git.latest:
     - name: https://github.com/jmesmon/illum.git
-    - target /opt/AUR/illum
+    - target: /opt/AUR/illum
     - user: {{ pillar['default_user'] }}
     - unless:
       - ls /opt/AUR/illum
