@@ -2,6 +2,12 @@
 include:
   - packages.arch
 
+bumblebeed:
+  service.running:
+    - enable: True
+    - require:
+      - sls: packages.arch
+
 ufw:
   pkg.installed: []
   service.running:

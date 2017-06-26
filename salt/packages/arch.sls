@@ -21,6 +21,7 @@ arch_package_list:
   pkg.installed:
     - pkgs:
       - alsa-utils
+      - bbswitch
       - bumblebee
       - bluez
       - bluez-utils
@@ -33,6 +34,7 @@ arch_package_list:
       - ifplugd
       - inkscape
       - intel-ucode
+      - linux-headers
       - mesa
       - mlocate
       - net-tools
@@ -47,14 +49,19 @@ arch_package_list:
       - python
       - python-pip
       - python-setuptools
+      - pwgen
+      - rxvt-unicode
       - terminus-font
       - the_silver_searcher
       - unzip
       - vagrant
+      - virtualbox
       - wpa_actiond
       - wpa_supplicant
       - xf86-video-intel
       - xorg-server
+      - xorg-xinit
+      - xorg-xrandr
     - require:
       - pkg: arch_cycle_fix
     - require_in:

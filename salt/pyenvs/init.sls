@@ -27,6 +27,9 @@ pyenv-deps:
     - require:
       - pkg: pyenv-deps
       - sls: packages
+{% if grains['os'] == 'Arch' %}
+      - sls: packages.arch
+{% endif %}
 
 {% for version in pillar['pyenvs']['extra_versions'] %}
 {{ version['py'] }}:

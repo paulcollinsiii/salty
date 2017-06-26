@@ -10,6 +10,7 @@ base:
   'G@os:Arch':
     - arch
     - packages.arch
+    - kubernetes
     - neovim
   'G@os:FreeBSD':
     - packages.freebsd

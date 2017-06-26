@@ -17,9 +17,9 @@ hub_binary:
 hub_stow:
   cmd.run:
     {% if grains['os'] == 'MacOS' %}
-    - name: "stow -t /usr/local -S hub-darwin-amd64-2.2.9"
+    - name: "stow --ignore='(install|LICENSE|README.md)' -t /usr/local -S hub-darwin-amd64-2.2.9"
     {% else %}
-    - name: "stow -t /usr/local -S hub-linux-amd64-2.2.8"
+    - name: "stow --ignore='(install|LICENSE|README.md)' -t /usr/local -S hub-linux-amd64-2.2.8"
     {% endif %}
     - cwd: /opt/hub
     - creates: /usr/local/bin/hub
