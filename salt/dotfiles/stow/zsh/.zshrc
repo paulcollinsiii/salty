@@ -72,5 +72,8 @@ source $ZSH/oh-my-zsh.sh
   . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 {% endif -%}
 
+# Nodenv
+eval "$(nodenv init -)"
+
 # All other custom config options have been moved into
 # $ZSH_CUSTOM/

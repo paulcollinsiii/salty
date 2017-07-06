@@ -5,7 +5,7 @@ node_repo:
     - gpgcheck: 1
     - gpgkey: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     - file: /etc/apt/sources.list.d/node.list
-  pkg.latest:
+  pkg.installed:
     - name: nodejs
     - require:
       - pkgrepo: node_repo

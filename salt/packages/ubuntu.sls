@@ -22,7 +22,7 @@ neovim_ppa:
 
 
 ubuntu_apt_package_list:
-  pkg.latest:
+  pkg.installed:
     - pkgs:
       - aptitude
       - editorconfig
