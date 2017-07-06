@@ -1,13 +1,25 @@
 {% set tf = salt['grains.filter_by']({
-  'Darwin': {'source': 'https://releases.hashicorp.com/terraform/0.9.5/terraform_0.9.5_darwin_amd64.zip'},
-  'Linux': {'source': 'https://releases.hashicorp.com/terraform/0.9.5/terraform_0.9.5_linux_amd64.zip'},
+  'Darwin': {'source': 'https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_darwin_amd64.zip'},
+  'Linux': {'source': 'https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip'},
   },
   grain='kernel',
   merge={
-    'version': '0.9.5',
-    'hashes': 'https://releases.hashicorp.com/terraform/0.9.5/terraform_0.9.5_SHA256SUMS'
+    'version': '0.9.11',
+    'previous': '0.9.2',
+    'hashes': 'https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_SHA256SUMS'
   })
 %}
+
+terraform_unstow:
+  cmd.run:
+    - name: "stow -t /usr/local -D {{ tf.previous }}"
+    - cwd: /opt/terraform
+    - onlyif: "test -e /opt/terraform/{{ tf.previous }}"
+
+/opt/terraform/{{ tf.previous }}:
+  file.absent:
+    - watch:
+      - terraform_unstow
 
 {% if grains['os'] == 'MacOS' %}
 /opt/terraform:
@@ -15,7 +27,7 @@
 /opt/terraform/{{ tf.version }}:
   file.directory: []
 
-terraform_osx:
+terraform:
   file.directory:
     - name: "/opt/terraform/{{ tf.version }}/bin"
   cmd.run:
@@ -23,14 +35,15 @@ terraform_osx:
     - cwd: "/opt/terraform/{{ tf.version }}/bin"
     - creates: "/opt/terraform/{{ tf.version }}/bin/terraform"
     - require:
-      - file: terraform_osx
+      - file: terraform
 
-terraform:
+terraform_stow:
   cmd.run:
     - name: "stow -t /usr/local -S {{ tf.version }}"
     - cwd: /opt/terraform
     - require:
-      - cmd: terraform_osx
+      - cmd: terraform
+      - cmd: terraform_unstow
 
 {% else %}
 
@@ -40,9 +53,12 @@ terraform:
     - source: {{ tf.source }}
     - source_hash: {{ tf.hashes }}
     - enforce_toplevel: false
+
+terraform_stow:
   cmd.run:
     - name: "stow -t /usr/local -S {{ tf.version }}"
     - cwd: /opt/terraform
     - require:
       - archive: terraform
+      - cmd: terraform_unstow
 {% endif %}
