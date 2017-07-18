@@ -53,9 +53,10 @@ plugins=(docker gitfast pyenv)
 
 # User configuration
 
-export PATH="{{ pillar['default_home'] }}/bin:{{ pillar['default_home'] }}/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
+export MANPATH="$HOME/.node/share/man:$MANPATH"
+export PATH="{{ pillar['default_home'] }}/.node/bin:{{ pillar['default_home'] }}/bin:{{ pillar['default_home'] }}/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PGPORT=15432
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 

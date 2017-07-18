@@ -21,10 +21,12 @@ arch_package_list:
   pkg.installed:
     - pkgs:
       - alsa-utils
+      - autocutsel
       - bbswitch
       - bumblebee
       - bluez
       - bluez-utils
+      - chromium
       - compton
       - dialog
       - dmenu
@@ -58,6 +60,7 @@ arch_package_list:
       - virtualbox
       - wpa_actiond
       - wpa_supplicant
+      - xclip
       - xf86-video-intel
       - xorg-server
       - xorg-xinit

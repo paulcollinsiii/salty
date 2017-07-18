@@ -23,6 +23,7 @@ Plug 'sjl/gundo.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
 Plug 'lambdalisue/vim-pyenv'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
