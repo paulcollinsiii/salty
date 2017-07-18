@@ -12,7 +12,6 @@ dotfiles:
 
 {% set modules = [
   'git',
-  'npm',
   'nvim',
   'powerline',
   'oh-my-zsh',
@@ -20,6 +19,11 @@ dotfiles:
   'vim',
   'zsh',
 ] %}
+
+{% if grains['os'] != 'MacOS' %}
+{% do modules.append('npm') %}
+{% endif %}
+
 
 {{ pillar['default_home']}}/.config:
   file.directory:
