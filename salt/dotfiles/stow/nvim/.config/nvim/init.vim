@@ -44,7 +44,6 @@ call plug#end()
 " Magic vim settings
 syn on
 set nu
-set clipboard=unnamed
 set backspace=indent,eol,start
 set hlsearch
 colorscheme 256-grayvim
@@ -78,6 +77,12 @@ augroup omnifuncs
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 augroup end
 
+function! Multiple_cursors_before()
+  call deoplete#disable()
+endfunction
+function! Multiple_cursors_after()
+  call deoplete#enable()
+endfunction
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
@@ -98,3 +103,6 @@ let NERDTreeWinSize = 45
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$', '__pycache__$[[dir]]']
 map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
+
+" Set clipboard last since OSX seems to be having trouble with this...
+set clipboard=unnamed
