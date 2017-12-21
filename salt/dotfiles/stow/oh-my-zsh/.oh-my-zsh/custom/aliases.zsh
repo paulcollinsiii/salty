@@ -1,5 +1,5 @@
 # Global Aliases
-alias update_ssh_config='{{ pillar['default_home'] }}/.pyenv/versions/salt2/bin/python {{ pillar['default_home'] }}/workspace/salt_infra/scripts/local_utils/aws_ssh_config_builder.py --filename {{ pillar['default_home'] }}/.ssh/config --region us-east-1 paul.collins --profiles bs datanav dol interactive mm si_corp prodops'
+alias update_ssh_config='{{ pillar['default_home'] }}/.pyenv/versions/salt2/bin/python {{ pillar['default_home'] }}/workspace/salt_infra/scripts/local_utils/aws_ssh_config_builder.py --filename {{ pillar['default_home'] }}/.ssh/config --region us-east-1 paul.collins --profiles bs datanav dol interactive marketmetrics si_corp prodops'
 alias vim=nvim
 
 {%- if grains['os'] == 'Ubuntu' %}
