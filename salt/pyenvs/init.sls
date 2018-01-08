@@ -16,9 +16,13 @@ pyenv-deps:
       - bash
       - gmake
       - sqlite3
+{% elif grains['os'] == 'MacOS' %}
+      - readline
+      - xz
 {% endif %}
       - wget
       - curl
+      - zlib
 
 {{ pillar['pyenvs']['default_version']['py'] }}:
   pyenv.installed:

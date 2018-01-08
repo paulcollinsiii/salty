@@ -17,7 +17,7 @@ pyenvs:
     py: python-2.7.13
     path: /home/paulcollins/.pyenv/versions/2.7.13
   extra_versions:
-    - py: python-3.6.1
+    - py: python-3.6.4
       base_ver: 3.6
       path: /home/paulcollins/.pyenv/versions/3.6.1
 
@@ -59,4 +59,7 @@ pyenvs:
     - py: python-3.5.2
       base_ver: 3.5
       path: /Users/paulcollins/.pyenv/versions/3.5.2
+    - py: python-3.6.4
+      base_ver: 3.6
+      path: /Users/paulcollins/.pyenv/versions/3.6.4
 {% endif %}

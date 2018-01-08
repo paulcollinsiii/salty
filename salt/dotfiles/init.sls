@@ -16,7 +16,6 @@ dotfiles:
   'powerline',
   'oh-my-zsh',
   'tmux',
-  'vim',
   'zsh',
 ] %}
 

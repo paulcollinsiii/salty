@@ -63,4 +63,10 @@ install_ubuntu () {
   git clone ${SALTY_REPO} /srv
 }
 
+install_osx () {
+	xcode-select --install
+	homebrew install
+	brew install salt
+}
+
 salt-call --local state.highstate

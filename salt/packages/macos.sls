@@ -9,3 +9,4 @@ mac_package_list:
       - python  # We want the brew version of python
       - reattach-to-user-namespace
       - the_silver_searcher
+      - nodenv
