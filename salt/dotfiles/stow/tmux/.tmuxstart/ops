@@ -9,11 +9,9 @@ tmux move-window -t $session:0 -t 9
 setup_window 0 salt ~/workspace/salt_infra
 setup_window 1 salt ~/workspace/salt_infra
 setup_window 2 Notes ~/Google\ Drive/Notes/brightscope
-setup_window 3 datanav ~/workspace/datanav
-setup_window 4 datanav ~/workspace/datanav
-setup_window 5 dol ~/workspace/doliverance
-setup_window 6 dol ~/workspace/doliverance
 
 tmux select-window -t $session:9
 tmux send-keys "logout" "Enter"
+tmux select-window -t $session:2
+tmux send-keys "nvim" "Enter"
 tmux select-window -t $session:0
