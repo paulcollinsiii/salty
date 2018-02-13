@@ -1,12 +1,12 @@
 {% set tf = salt['grains.filter_by']({
-  'Darwin': {'source': 'https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_darwin_amd64.zip'},
-  'Linux': {'source': 'https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip'},
+  'Darwin': {'source': 'https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_darwin_amd64.zip'},
+  'Linux': {'source': 'https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip'},
   },
   grain='kernel',
   merge={
-    'version': '0.10.8',
-    'previous': '0.9.11',
-    'hashes': 'https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_SHA256SUMS'
+    'version': '0.11.3',
+    'previous': '0.10.8',
+    'hashes': 'https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_SHA256SUMS'
   })
 %}
 

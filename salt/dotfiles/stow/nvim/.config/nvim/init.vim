@@ -104,5 +104,8 @@ let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', 
 map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 
+" Terraform
+let g:terraform_fmt_on_save = 1
+
 " Set clipboard last since OSX seems to be having trouble with this...
 set clipboard=unnamed
