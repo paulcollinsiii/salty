@@ -4,7 +4,7 @@ include:
 pyenv-deps:
   pkg.installed:
     - pkgs:
-{% if grains['os'] == 'Ubuntu' %}
+{% if grains['os'] in ('Debian', 'Ubuntu') %}
       - build-essential
       - libssl-dev
       - zlib1g-dev
@@ -12,17 +12,19 @@ pyenv-deps:
       - libreadline-dev
       - libsqlite3-dev
       - llvm
+      - zlib1g
 {% elif grains['os'] == 'FreeBSD' %}
       - bash
       - gmake
       - sqlite3
+      - zlib
 {% elif grains['os'] == 'MacOS' %}
       - readline
       - xz
+      - zlib
 {% endif %}
       - wget
       - curl
-      - zlib
 
 {{ pillar['pyenvs']['default_version']['py'] }}:
   pyenv.installed:

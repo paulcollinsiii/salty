@@ -69,12 +69,14 @@ source $ZSH/oh-my-zsh.sh
   export POWERLINE_CONFIG_COMMAND=/usr/bin/powerline-config
   export POWERLINE_COMMAND=/usr/bin/powerline
   . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-{% elif grains['os'] == 'Ubuntu' %}
+{% elif grains['os'] in ('Debian', 'Ubuntu') %}
   . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 {% endif -%}
 
+{%- if grains['os'] in ('Arch', 'MacOS') %}
 # Nodenv
 eval "$(nodenv init -)"
+{% endif -%}
 
 # All other custom config options have been moved into
 # $ZSH_CUSTOM/

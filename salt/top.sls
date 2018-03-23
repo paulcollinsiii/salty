@@ -4,6 +4,7 @@ base:
     - packages
     - dotfiles
     - hub
+    - neovim
     - pyenvs
     - powerline
     - terraform
@@ -11,14 +12,12 @@ base:
     - arch
     - packages.arch
     - kubernetes
-    - neovim
+  'G@os:Debian':
+    - packages.debian
   'G@os:FreeBSD':
     - packages.freebsd
-    - vim
   'G@os:MacOS':
-    - neovim
     - packages.macos
   'G@os:Ubuntu':
     - packages.ubuntu
     - node
-    - vim
