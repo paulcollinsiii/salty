@@ -61,6 +61,20 @@ git_editor:
     - value: "nvim"
     - global: True
 
+git_mrp:
+  git.config_set:
+    - user: {{ pillar['default_user'] }}
+    - name: alias.mrp
+    - value: "!git checkout master && git pull -r -p"
+    - global: True
+
+git_bfm:
+  git.config_set:
+    - user: {{ pillar['default_user'] }}
+    - name: alias.bfm
+    - value: "!git checkout master && git pull -r -p && git checkout -b $1 && :"
+    - global: True
+
 tmux_start:
     file.managed:
       - name: /usr/local/bin/tmuxstart
