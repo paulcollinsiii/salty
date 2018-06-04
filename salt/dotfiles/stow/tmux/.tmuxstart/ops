@@ -10,6 +10,11 @@ setup_window 0 salt ~/workspace/salt_infra
 setup_window 1 salt ~/workspace/salt_infra
 setup_window 2 Notes ~/Google\ Drive/Notes/brightscope
 
+tmux select-window -t $session:0
+tmux send-keys "pipenv shell" "Enter"
+tmux select-window -t $session:1
+tmux send-keys "pipenv shell" "Enter"
+
 tmux select-window -t $session:9
 tmux send-keys "logout" "Enter"
 tmux select-window -t $session:2
