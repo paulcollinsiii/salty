@@ -75,6 +75,14 @@ git_bfm:
     - value: "!git checkout master && git pull -r -p && git checkout -b $1 && :"
     - global: True
 
+git_ppr:
+  git.config_set:
+    - user: {{ pillar['default_user'] }}
+    - name: alias.ppr
+    - value: "!git push -u origin HEAD && hub pull-request -c && :"
+    - global: True
+
+
 tmux_start:
     file.managed:
       - name: /usr/local/bin/tmuxstart
