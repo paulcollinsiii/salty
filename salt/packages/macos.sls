@@ -10,3 +10,4 @@ mac_package_list:
       - reattach-to-user-namespace
       - the_silver_searcher
       - nodenv
+      - parallel
