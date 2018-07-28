@@ -15,6 +15,7 @@ dotfiles:
   'nvim',
   'powerline',
   'oh-my-zsh',
+  'termite',
   'tmux',
   'zsh',
 ] %}

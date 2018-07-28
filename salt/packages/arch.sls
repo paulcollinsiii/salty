@@ -63,6 +63,7 @@ arch_package_list:
       - i3blocks
       - i3lock
       - i3status
+      - termite
     - require:
       - pkg: arch_cycle_fix
     - require_in:
