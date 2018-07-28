@@ -58,4 +58,4 @@ acpi:
   pkg.installed:
     - pkgs:
       - cpio
-      - iasl
+      - acpica

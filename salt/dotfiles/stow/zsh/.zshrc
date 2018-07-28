@@ -73,7 +73,7 @@ source $ZSH/oh-my-zsh.sh
   . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 {% endif -%}
 
-{%- if grains['os'] in ('Arch', 'MacOS') %}
+{%- if grains['os'] == 'MacOS' %}
 # Nodenv
 eval "$(nodenv init -)"
 {% endif -%}

@@ -7,9 +7,6 @@ base-devel:
     - requires:
       - pkg: arch_package_list
 
-i3:
-  pkg.group_installed: []
-
 arch_cycle_fix:
   pkg.installed:
     - pkgs:
@@ -31,10 +28,7 @@ arch_package_list:
       - dialog
       - dmenu
       - firefox
-      - gimp
-      - go-tools
       - ifplugd
-      - inkscape
       - intel-ucode
       - linux-headers
       - mesa
@@ -65,6 +59,10 @@ arch_package_list:
       - xorg-server
       - xorg-xinit
       - xorg-xrandr
+      - i3-gaps
+      - i3blocks
+      - i3lock
+      - i3status
     - require:
       - pkg: arch_cycle_fix
     - require_in:
