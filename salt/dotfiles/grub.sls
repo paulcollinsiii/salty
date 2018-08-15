@@ -12,7 +12,7 @@ grub_defaults:
 grub_rebuild:
   cmd.run:
     - name: /usr/sbin/update-grub
-    - user: root
+    - runas: root
     - cwd: /
     - watch:
       - file: grub_defaults
