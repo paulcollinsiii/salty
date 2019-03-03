@@ -5,16 +5,16 @@
     'skaffold': '',
     },
   'Linux': {
-    'kubectl': 'https://storage.googleapis.com/kubernetes-release/release/v1.6.4/bin/linux/amd64/kubectl',
-    'minikube': 'https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64',
-    'skaffold': 'https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64',
+    'kubectl': 'https://storage.googleapis.com/kubernetes-release/release/v1.13.4/bin/linux/amd64/kubectl',
+    'minikube': 'https://storage.googleapis.com/minikube/releases/v0.34.1/minikube-linux-amd64',
+    'skaffold': 'https://github.com/GoogleContainerTools/skaffold/releases/download/v0.24.0/skaffold-linux-amd64',
     },
   },
   grain='kernel',
   merge={
-    'kubectl_version': 'v1.6.4',
-    'minikube_version': 'v1.11.1',
-    'skaffold_version': 'v0.10.0',
+    'kubectl_version': 'v1.13.4',
+    'minikube_version': 'v0.34.1',
+    'skaffold_version': 'v0.24.0',
   })
 %}
 

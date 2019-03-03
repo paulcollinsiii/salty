@@ -12,7 +12,6 @@ arch_cycle_fix:
     - pkgs:
       - harfbuzz
       - noto-fonts
-      - libx264
 
 arch_package_list:
   pkg.installed:
@@ -39,7 +38,6 @@ arch_package_list:
       - nvidia
       - openssh
       - pamixer
-      - pandoc
       - pavucontrol
       - pulseaudio
       - python
@@ -51,7 +49,6 @@ arch_package_list:
       - the_silver_searcher
       - unzip
       - vagrant
-      - virtualbox
       - wpa_actiond
       - wpa_supplicant
       - xclip
