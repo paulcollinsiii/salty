@@ -1,0 +1,39 @@
+---
+# tasks file for packages
+
+- name: find my variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family }}.yml"
+    - main.yml
+
+- name: debug pkg list
+  debug:
+    msg: "{{ custom_package_list | union(common_package_list) }}"
+  when: ansible_check_mode
+
+- name: install arch packages
+  pacman:
+    name: "{{ custom_package_list | union(common_package_list) }}"
+    state: present
+  when:
+    - ansible_os_family == "Archlinux"
+    - not ansible_check_mode
+
+# Once I support other systems in here we'll put the default package manager in here
+
+- name: "oh-my-zsh"
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: "{{ default_user.home }}/.oh-my-zsh"
+    update: no
+  become: yes
+  become_user: "{{ default_user.username }}"
+
+- name: tmux_start
+  get_url:
+    url: https://github.com/treyhunner/tmuxstart/raw/master/tmuxstart
+    dest: /usr/local/bin/tmuxstart
+    checksum: "md5:789889cf45f927a730c6a35ddf8b3951"
+    mode: "755"
+

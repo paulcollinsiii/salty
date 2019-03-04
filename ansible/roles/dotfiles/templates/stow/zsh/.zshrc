@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH={{ pillar['default_home'] }}/.oh-my-zsh
+export ZSH={{ default_user.home }}/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -55,25 +55,25 @@ plugins=(docker gitfast pyenv)
 
 export NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 export MANPATH="$HOME/.node/share/man:$MANPATH"
-export PATH="{{ pillar['default_home'] }}/.node/bin:{{ pillar['default_home'] }}/bin:{{ pillar['default_home'] }}/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="{{ default_user.home }}/.node/bin:{{ default_user.home }}/bin:{{ default_user.home }}/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PGPORT=15432
 
 source $ZSH/oh-my-zsh.sh
 
 # Powerline
-{%- if grains['os'] == 'MacOS' %}
+{%- if ansible_os_family == 'MacOS' %}
   export POWERLINE_CONFIG_COMMAND=/usr/local/bin/powerline-config
   export POWERLINE_COMMAND=/usr/local/bin/powerline
   . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-{% elif grains['os'] == 'Arch' %}
+{% elif ansible_os_family == 'Archlinux' %}
   export POWERLINE_CONFIG_COMMAND=/usr/bin/powerline-config
   export POWERLINE_COMMAND=/usr/bin/powerline
   . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-{% elif grains['os'] in ('Debian', 'Ubuntu') %}
+{% elif ansible_os_family in ('Debian', 'Ubuntu') %}
   . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 {% endif -%}
 
-{%- if grains['os'] == 'MacOS' %}
+{%- if ansible_os_family == 'MacOS' %}
 # Nodenv
 eval "$(nodenv init -)"
 {% endif -%}

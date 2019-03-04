@@ -1,2 +1,30 @@
 ---
 # tasks file for dotfiles
+
+- name: render dotfiles
+  template:
+    src: "{{ item.path }}"
+    dest: "{{ default_user.home }}/{{ item.path }}"
+    owner: "{{ default_user.username }}"
+    group: "{{ default_user.group }}"
+    mode: "{{ item.mode }}"
+    force: yes
+  with_filetree: templates/
+  when: item.state == 'file'
+
+- name: install stow
+  package:
+    name: stow
+    state: present
+
+- name: find all stowables
+  command: 'ls -1 {{ default_user.home }}/stow'  # noqa 301
+  register: stowed_dotfiles
+  check_mode: no
+
+- name: stow all our dotfiles
+  command: '/usr/bin/stow -t {{ default_user.home }} -S {{ stowed_dotfiles.stdout_lines | join(" -S ") }}'  # noqa 301
+  args:
+    chdir: "{{ default_user.home }}/stow"
+  become: yes
+  become_user: "{{ default_user.username }}"

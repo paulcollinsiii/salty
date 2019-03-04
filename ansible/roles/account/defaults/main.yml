@@ -1,0 +1,36 @@
+git_configs:
+  - name: user.name
+    value: "{{ default_user.realname }}"
+    scope: global
+
+  - name: user.email
+    value: "{{ default_user.email }}"
+    scope: global
+
+  - name: push.default
+    value: simple
+    scope: global
+
+  - name: core.excludesfile
+    value: "~/.gitignore_global"
+    scope: global
+
+  - name: core.pager
+    value: "less -F -X"
+    scope: global
+
+  - name: core.editor
+    value: "nvim"
+    scope: global
+
+  - name: alias.mrp
+    value: "!git checkout master && git pull -r -p"
+    scope: global
+
+  - name: alias.bfm
+    value: "!git checkout master && git pull -r -p && git checkout -b $1 && :"
+    scope: global
+
+  - name: alias.ppr
+    value: "!git push -u origin HEAD && hub pull-request -c && :"
+    scope: global

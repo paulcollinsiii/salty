@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - role: ../roles/packages
+    - role: ../roles/account
+    - role: ../roles/dotfiles
+      when: ansible_os_family == "Archlinux"

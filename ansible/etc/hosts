@@ -1,1 +1,27 @@
-localhost ansible_connection=local ansible_python_interpreter="/usr/bin/python"
+linux:
+  hosts:
+    arch_linux:
+      ansible_connection: local
+      ansible_python_interpreter: "/usr/bin/python"
+  vars:
+    default_user:
+      username: paulcollins
+      realname: Paul Collins
+      email: "paul.collins.iii@gmail.com"
+      home: "/home/paulcollins"
+      shell: "/usr/bin/zsh"
+      group: paulcollins
+      groups:
+        - bumblebee
+        - docker
+        - users
+        - wheel
+    pyenvs:
+      default:
+        py: python-2.7.13
+        base_ver: 2.7
+        pyenv_ver_path: "2.7.13"
+      extra_versions:
+        - py: python-3.6.4
+          base_ver: 3.6
+          pyenv_ver_path: "3.6.1"

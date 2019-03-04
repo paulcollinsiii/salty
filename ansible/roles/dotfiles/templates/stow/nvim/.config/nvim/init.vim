@@ -1,8 +1,8 @@
 set nocompatible              " be iMproved, required
-let g:python_host_prog = '{{ pillar['pyenvs']['default_version']['path'] }}/bin/python'
+let g:python_host_prog = '{{ default_user.home }}/.pyenv/versions/{{ pyenvs.default.pyenv_ver_path }}/bin/python'
 
-{% for version in pillar['pyenvs']['extra_versions'] %}
-let g:python3_host_prog = '{{ version['path'] }}/bin/python'
+{% for version in pyenvs.extra_versions %}
+let g:python3_host_prog = '{{ default_user.home }}/.pyenv/versions/{{ version.pyenv_ver_path }}/bin/python'
 {% endfor %}
 
 call plug#begin('~/.local/share/nvim/plugged')
