@@ -2,7 +2,27 @@ linux:
   hosts:
     arch_linux:
       ansible_connection: local
-      ansible_python_interpreter: "/usr/bin/python"
+      groups:
+        - bumblebee
+        - docker
+        - users
+        - wheel
+    pi:
+      ansible_connection: local
+      default_user:
+        username: pi
+        group: pi
+        shell: "/usr/bin/bash"
+        home: "/home/pi"
+      host_packages:
+        - aptitude
+        - arduino
+        - fonts-powerline
+        - git
+        - picocom
+        - scratch3
+        - software-properties-common
+        - tmux
   vars:
     default_user:
       username: paulcollins
@@ -11,17 +31,3 @@ linux:
       home: "/home/paulcollins"
       shell: "/usr/bin/zsh"
       group: paulcollins
-      groups:
-        - bumblebee
-        - docker
-        - users
-        - wheel
-    pyenvs:
-      default:
-        py: python-2.7.13
-        base_ver: 2.7
-        pyenv_ver_path: "2.7.13"
-      extra_versions:
-        - py: python-3.6.4
-          base_ver: 3.6
-          pyenv_ver_path: "3.6.1"

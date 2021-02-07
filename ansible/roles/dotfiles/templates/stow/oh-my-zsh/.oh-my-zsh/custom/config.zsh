@@ -7,4 +7,3 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   # Because Terminal.app why you have bad defaults
   stty -ixon -ixoff
 {% endif -%}
-

@@ -1,9 +1,4 @@
 set nocompatible              " be iMproved, required
-let g:python_host_prog = '{{ default_user.home }}/.pyenv/versions/{{ pyenvs.default.pyenv_ver_path }}/bin/python'
-
-{% for version in pyenvs.extra_versions %}
-let g:python3_host_prog = '{{ default_user.home }}/.pyenv/versions/{{ version.pyenv_ver_path }}/bin/python'
-{% endfor %}
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -18,20 +13,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go'
 Plug 'sjl/gundo.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
-Plug 'leafgarland/typescript-vim'
-Plug 'lambdalisue/vim-pyenv'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'saltstack/salt-vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-unimpaired'
 
 " Order matters for some plugins...
@@ -66,22 +53,6 @@ else
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 endif
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
-autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
-
-augroup omnifuncs
-  autocmd!
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-augroup end
-
-function! Multiple_cursors_before()
-  call deoplete#disable()
-endfunction
-function! Multiple_cursors_after()
-  call deoplete#enable()
-endfunction
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
@@ -102,9 +73,6 @@ let NERDTreeWinSize = 45
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$', '__pycache__$[[dir]]']
 map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
-
-" Terraform
-let g:terraform_fmt_on_save = 1
 
 " Set clipboard last since OSX seems to be having trouble with this...
 set clipboard=unnamed

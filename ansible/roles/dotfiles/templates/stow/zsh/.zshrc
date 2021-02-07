@@ -60,23 +60,5 @@ export PGPORT=15432
 
 source $ZSH/oh-my-zsh.sh
 
-# Powerline
-{%- if ansible_os_family == 'MacOS' %}
-  export POWERLINE_CONFIG_COMMAND=/usr/local/bin/powerline-config
-  export POWERLINE_COMMAND=/usr/local/bin/powerline
-  . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-{% elif ansible_os_family == 'Archlinux' %}
-  export POWERLINE_CONFIG_COMMAND=/usr/bin/powerline-config
-  export POWERLINE_COMMAND=/usr/bin/powerline
-  . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-{% elif ansible_os_family in ('Debian', 'Ubuntu') %}
-  . /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
-{% endif -%}
-
-{%- if ansible_os_family == 'MacOS' %}
-# Nodenv
-eval "$(nodenv init -)"
-{% endif -%}
-
 # All other custom config options have been moved into
 # $ZSH_CUSTOM/

@@ -1,6 +1,0 @@
----
-# vars file for packages
-common_package_list:
-  - htop
-  - tmux
-  - stow

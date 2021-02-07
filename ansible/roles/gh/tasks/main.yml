@@ -1,0 +1,28 @@
+---
+# Setup github cli (gh)
+
+- name: check gh
+  stat:
+    path: /usr/bin/gh
+  register: st
+
+- name: gh version if installed
+  command: "gh --version"
+  register: gh_ver
+  when: st.stat.exists
+
+- name: install gh
+  apt:
+    deb: "{{ gh[ansible_facts.distribution][ansible_facts.architecture]}}"
+  become: true
+  when: gh_ver is defined and gh_ver.stdout_lines[0] != gh.version
+
+- name: check pre-commit
+  stat:
+    path: "{{ default_user.home }}/.local/bin/pre-commit"
+  register: pre_commit
+
+- name: install pre-commit
+  pip:
+    name: pre-commit
+  when: not pre_commit.stat.exists

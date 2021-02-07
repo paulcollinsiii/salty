@@ -1,6 +1,15 @@
 ---
 # tasks file for dotfiles
 
+- name: stow dir create
+  file:
+    path: '{{ default_user.home }}/{{ item.path }}'
+    owner: "{{ default_user.username }}"
+    group: "{{ default_user.group }}"
+    state: directory
+  with_filetree: templates/
+  when: item.state == 'directory'
+
 - name: render dotfiles
   template:
     src: "{{ item.path }}"
@@ -16,6 +25,7 @@
   package:
     name: stow
     state: present
+  become: true
 
 - name: find all stowables
   command: 'ls -1 {{ default_user.home }}/stow'  # noqa 301
