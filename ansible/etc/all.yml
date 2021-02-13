@@ -1,7 +1,7 @@
 - hosts: all
   roles:
-    #- role: ../roles/account
-    #- role: ../roles/dotfiles
-    #- role: ../roles/neovim
-    #- role: ../roles/packages
+    - role: ../roles/account
+    - role: ../roles/dotfiles
+    - role: ../roles/neovim
+    - role: ../roles/packages
     - role: ../roles/gh
