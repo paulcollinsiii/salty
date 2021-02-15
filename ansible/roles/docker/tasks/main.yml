@@ -1,0 +1,16 @@
+---
+
+- name: Run docker installer
+  command:
+    cmd: "/bin/sh -c 'curl -fsSL https://get.docker.com | /bin/sh'"
+    creates: /usr/bin/docker
+  become: true
+  when: ansible_facts.architecture == 'armv7l'
+
+- name: Add user to group
+  user:
+    append: true
+    name: "{{ default_user.username }}"
+    groups:
+      - docker
+  become: true

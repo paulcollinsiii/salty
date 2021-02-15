@@ -5,3 +5,4 @@
     - role: ../roles/neovim
     - role: ../roles/packages
     - role: ../roles/gh
+    - role: ../roles/docker
