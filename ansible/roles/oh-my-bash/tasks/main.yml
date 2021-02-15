@@ -1,0 +1,6 @@
+---
+
+- name: Install oh-my-bash
+  shell:
+    cmd: 'sh -c "$(curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh)"'
+    creates: "{{ default_user.home }}/.oh-my-bash"

@@ -6,3 +6,4 @@
     - role: ../roles/packages
     - role: ../roles/gh
     - role: ../roles/docker
+    - role: ../roles/oh-my-bash

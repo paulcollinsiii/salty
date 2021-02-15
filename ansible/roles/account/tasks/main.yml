@@ -1,13 +1,13 @@
 ---
 # tasks file for account
 
-- name: "setup {{ default_user.username }}"
-  user:
-    name: "{{ default_user.username }}"
-    shell: "{{ default_user.shell }}"
-    append: true
-    groups: "{{ default_user.groups }}"
-    home: "{{ default_user.home }}"
+#- name: "setup {{ default_user.username }}"
+#  user:
+#    name: "{{ default_user.username }}"
+#    shell: "{{ default_user.shell }}"
+#    append: true
+#    groups: "{{ default_user.groups }}"
+#    home: "{{ default_user.home }}"
 
 - name: configure git
   git_config:
