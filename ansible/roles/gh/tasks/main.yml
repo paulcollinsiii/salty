@@ -19,7 +19,7 @@
   apt:
     deb: "{{ gh[ansible_facts.distribution][ansible_facts.architecture]}}"
   become: true
-  when: gh_ver.skipped or gh_ver.stdout_lines[0] != gh.version
+  when: (gh_ver.skipped is defined and gh_ver.skipped) or gh_ver.stdout_lines[0] != gh.version
 
 - name: check pre-commit
   stat:

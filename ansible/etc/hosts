@@ -16,9 +16,9 @@ linux:
         home: "/home/pi"
       host_packages:
         - aptitude
+        - clang-format
         - fonts-powerline
         - git
-        - picocom
         - scratch3
         - silversearcher-ag
         - software-properties-common
