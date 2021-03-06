@@ -39,7 +39,8 @@ nmap <silent> <leader>ul :t.<CR>Vr-
 nmap <silent> <leader>h :nohls<CR>
 
 " Braceless
-autocmd FileType python,yaml BracelessEnable +indent
+autocmd FileType python BracelessEnable +indent
+autocmd FileType yaml BracelessEnable +highlight
 
 " CtrlP
 if executable('ag')

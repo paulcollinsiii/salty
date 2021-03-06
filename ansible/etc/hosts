@@ -23,6 +23,26 @@ linux:
         - silversearcher-ag
         - software-properties-common
         - tmux
+    kaffi:
+      ansible_connection: local
+      default_user:
+        username: paulcollins
+        group: paulcollins
+        groups:
+          - dialout
+        shell: "/usr/bin/bash"
+        home: "/home/paulcollins"
+      host_packages:
+        - aptitude
+        - clang-format
+        - curl
+        - fonts-powerline
+        - git
+        - libncurses5  # Needed for pio clangtidy
+        - powerline
+        - python3-pip
+        - silversearcher-ag
+        - tmux
   vars:
     default_user:
       username: paulcollins

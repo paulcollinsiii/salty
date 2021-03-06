@@ -15,3 +15,11 @@
     value: "{{ item.value }}"
     scope: "{{ item.scope }}"
   loop: "{{ git_configs }}"
+
+- name: extra groups
+  user:
+    append: yes
+    groups: "{{ default_user.groups }}"
+    name: "{{default_user.username }}"
+  when: default_user.groups
+  become: true

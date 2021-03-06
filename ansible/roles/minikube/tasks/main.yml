@@ -1,0 +1,22 @@
+---
+# Setup minikube
+
+- name: check minikube
+  stat:
+    path: /usr/bin/minikube
+  register: st
+
+- name: minikube version if installed
+  command: "minikube version"
+  register: minikube_ver
+  when: st.stat.exists
+
+- name: check minikubever
+  debug:
+    msg: "{{minikube_ver}}"
+
+- name: install minikube
+  apt:
+    deb: "{{ minikube[ansible_facts.distribution][ansible_facts.architecture]}}"
+  become: true
+  when: (minikube_ver.skipped is defined and minikube_ver.skipped) or minikube_ver.stdout_lines[0] != minikube.version

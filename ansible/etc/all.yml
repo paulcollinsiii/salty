@@ -7,3 +7,6 @@
     - role: ../roles/gh
     - role: ../roles/docker
     - role: ../roles/oh-my-bash
+- hosts: kaffi
+  roles:
+    - role: ../roles/minikube
