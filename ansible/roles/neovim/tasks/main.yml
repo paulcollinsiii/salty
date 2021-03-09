@@ -10,3 +10,12 @@
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: "{{ default_user.home}}/.config/nvim/autoload/plug.vim"
+  register: plugged
+
+- name: neomvim plug setup
+  command: "nvim +PlugUpgrade +qall"
+  when: plugged.changed
+
+- name: neomvim plug install
+  command: "nvim +PlugUpdate +qall"
+  when: plugged.changed

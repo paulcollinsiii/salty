@@ -1,0 +1,18 @@
+setup_window() {
+  new_window -c "$3" -t $1
+  tmux rename-window -t $session:$1 $2
+  tmux send-keys -t $session:$1 "cd $3" "Enter"
+  tmux send-keys -t $session:$1 c-l
+}
+
+new_session
+tmux move-window -t $session:0 -t 9
+
+setup_window 0 Editor ~/coding/iot-boards
+setup_window 1 Builder ~/coding/iot-boards
+setup_window 2 Kube ~/coding/iot-boards
+
+tmux send-keys -t $session:9 "logout" "Enter"
+
+tmux select-window -t $session:0
+tmux send-keys "nvim" "Enter"
