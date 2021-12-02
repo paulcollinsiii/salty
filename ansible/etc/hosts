@@ -43,6 +43,8 @@ linux:
         - python3-pip
         - silversearcher-ag
         - tmux
+        # virtualization for kubernetes setup
+        - virtualbox
   vars:
     default_user:
       username: paulcollins

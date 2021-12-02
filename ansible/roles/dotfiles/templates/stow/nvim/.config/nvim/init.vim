@@ -14,7 +14,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'sjl/gundo.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-sleuth'
@@ -75,5 +75,4 @@ let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', 
 map <leader>n :NERDTreeToggle<CR>
 map <leader>N :NERDTreeFind<CR>
 
-" Set clipboard last since OSX seems to be having trouble with this...
-set clipboard=unnamed
+set clipboard=unnamedplus

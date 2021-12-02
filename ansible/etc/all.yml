@@ -1,12 +1,19 @@
 - hosts: all
   roles:
     - role: ../roles/account
+      tags: [ acct ]
     - role: ../roles/dotfiles
+      tags: [ acct, dots ]
     - role: ../roles/neovim
+      tags: [ pkg ]
     - role: ../roles/packages
+      tags: [ pkg ]
     - role: ../roles/gh
+      tags: [ pkg ]
     - role: ../roles/docker
+      tags: [ pkg ]
     - role: ../roles/oh-my-bash
-- hosts: kaffi
-  roles:
-    - role: ../roles/minikube
+      tags: [ pkg ]
+#- hosts: kaffi
+  #roles:
+    #- role: ../roles/minikube
